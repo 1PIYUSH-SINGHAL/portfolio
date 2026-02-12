@@ -20,8 +20,8 @@ margin-bottom:18px;
 }
 
 .work-title{
-font-size:2.8rem;
-line-height:1.08;
+font-size:2.6rem;
+line-height:1.1;
 margin-bottom:18px;
 max-width:850px;
 }
@@ -31,7 +31,7 @@ font-size:1rem;
 color:var(--carbon-muted);
 max-width:650px;
 line-height:1.7;
-margin-bottom:16px;
+margin-bottom:14px;
 }
 
 .work-count{
@@ -58,7 +58,7 @@ gap:36px;
 
 .work-card{
 background:#2D2E2E;
-padding:34px;
+padding:32px;
 border:1px solid #3a3a3a;
 display:flex;
 flex-direction:column;
@@ -76,10 +76,11 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 gap:16px;
+flex-wrap:wrap;
 }
 
 .work-card-header h2{
-font-size:1.4rem;
+font-size:1.3rem;
 line-height:1.2;
 }
 
@@ -152,19 +153,26 @@ color:#fff;
 .work-pagination{
 display:flex;
 justify-content:center;
-gap:12px;
+align-items:center;
+gap:10px;
 margin-top:60px;
+flex-wrap:wrap;
 }
 
 .work-page-btn{
+min-width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
 background:transparent;
 border:1px solid #3a3a3a;
 color:#E5E5E5;
-padding:8px 14px;
 font-family:var(--carbon-font-mono);
 font-size:.8rem;
 cursor:pointer;
 transition:.25s ease;
+padding:0 14px;
 }
 
 .work-page-btn:hover:not(:disabled){
@@ -199,7 +207,7 @@ padding:140px 1.2rem 70px 1.2rem;
 }
 
 .work-title{
-font-size:2.1rem;
+font-size:2rem;
 }
 
 .work-archive{
@@ -207,7 +215,7 @@ padding:50px 1.2rem 90px 1.2rem;
 }
 
 .work-card{
-padding:24px;
+padding:22px;
 }
 
 .work-card-header{
