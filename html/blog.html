@@ -1,166 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Engineering Journal | Piyush Singhal</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Engineering Journal | Piyush Singhal</title>
 
-<link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="../css/blog.css">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <header class="carbon-header">
+      <div class="carbon-logo">PIYUSH SINGHAL</div>
+      <nav class="carbon-nav">
+        <a href="../index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-<header class="carbon-header">
-<div class="carbon-logo">PIYUSH SINGHAL</div>
-<nav class="carbon-nav">
-<a href="../index.html">Home</a>
-<a href="work.html">Work</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header>
+    <main class="carbon-main">
+      <section class="blog-hero">
+        <div class="blog-hero-wrapper">
+          <span class="blog-label">ENGINEERING JOURNAL</span>
 
-<main class="carbon-main">
+          <h1 class="blog-hero-title">
+            Backend Systems,<br />
+            Concurrency & Architecture
+          </h1>
 
-<section class="blog-hero">
-<div class="blog-hero-wrapper">
+          <p class="blog-hero-description">
+            Practical backend insights covering async execution models, REST
+            architecture, performance engineering, distributed systems thinking,
+            and resilience design.
+          </p>
 
-<span class="blog-label">ENGINEERING JOURNAL</span>
+          <div class="blog-hero-meta">
+            <span>Location: Nepal / India</span>
+            <span>Time Zone: UTC +05:45</span>
+            <span id="article-count"></span>
+          </div>
+        </div>
+      </section>
 
-<h1 class="blog-hero-title">
-Backend Systems,<br>
-Concurrency & Architecture
-</h1>
+      <section class="blog-index">
+        <div class="blog-index-wrapper">
+          <div class="blog-index-header">
+            <span class="index-label">ARTICLES</span>
+          </div>
 
-<p class="blog-hero-description">
-Practical backend insights covering async execution models, REST architecture,
-performance engineering, distributed systems thinking, and resilience design.
-</p>
+          <div class="blog-list" id="blog-container">
+            <article class="blog-card">
+              <div class="blog-card-top">
+                <span class="blog-date">Mar 2026</span>
+                <span class="blog-category">Concurrency</span>
+              </div>
+              <h2 class="blog-title">
+                Blocking vs Non-Blocking Execution Explained
+              </h2>
+              <p class="blog-excerpt">
+                Event loops, synchronous bottlenecks, and why async systems
+                scale efficiently under real-world load.
+              </p>
+              <div class="blog-footer">
+                <span class="read-time">5 min read</span>
+                <a href="#" class="blog-read">Read →</a>
+              </div>
+            </article>
 
-<div class="blog-hero-meta">
-<span>Location: Nepal / India</span>
-<span>Time Zone: UTC +05:45</span>
-<span id="article-count"></span>
-</div>
+            <article class="blog-card">
+              <div class="blog-card-top">
+                <span class="blog-date">Mar 2026</span>
+                <span class="blog-category">REST</span>
+              </div>
+              <h2 class="blog-title">
+                Designing Stateless REST APIs That Scale
+              </h2>
+              <p class="blog-excerpt">
+                Validation layers, service boundaries, and decisions that enable
+                horizontal growth.
+              </p>
+              <div class="blog-footer">
+                <span class="read-time">6 min read</span>
+                <a href="#" class="blog-read">Read →</a>
+              </div>
+            </article>
 
-</div>
-</section>
+            <article class="blog-card">
+              <div class="blog-card-top">
+                <span class="blog-date">Mar 2026</span>
+                <span class="blog-category">Performance</span>
+              </div>
+              <h2 class="blog-title">
+                Measuring Execution Time in Python Properly
+              </h2>
+              <p class="blog-excerpt">
+                Benchmarking patterns, CPU bottlenecks, and understanding
+                latency vs throughput.
+              </p>
+              <div class="blog-footer">
+                <span class="read-time">4 min read</span>
+                <a href="#" class="blog-read">Read →</a>
+              </div>
+            </article>
 
-<section class="blog-index">
+            <article class="blog-card">
+              <div class="blog-card-top">
+                <span class="blog-date">Mar 2026</span>
+                <span class="blog-category">Architecture</span>
+              </div>
+              <h2 class="blog-title">
+                AsyncIO vs Threading: Choosing the Right Model
+              </h2>
+              <p class="blog-excerpt">
+                Tradeoffs between concurrency models in real backend services.
+              </p>
+              <div class="blog-footer">
+                <span class="read-time">7 min read</span>
+                <a href="#" class="blog-read">Read →</a>
+              </div>
+            </article>
 
-<div class="blog-index-wrapper">
+            <article class="blog-card">
+              <div class="blog-card-top">
+                <span class="blog-date">Mar 2026</span>
+                <span class="blog-category">Systems</span>
+              </div>
+              <h2 class="blog-title">
+                Designing for Resilience in Backend Services
+              </h2>
+              <p class="blog-excerpt">
+                Circuit breakers, graceful degradation, and building
+                failure-aware systems.
+              </p>
+              <div class="blog-footer">
+                <span class="read-time">6 min read</span>
+                <a href="#" class="blog-read">Read →</a>
+              </div>
+            </article>
+          </div>
 
-<div class="blog-index-header">
-<span class="index-label">ARTICLES</span>
-</div>
+          <div class="blog-pagination" id="blog-pagination"></div>
+        </div>
+      </section>
+    </main>
 
-<div class="blog-list" id="blog-container">
+    <footer class="carbon-footer">
+      <div class="footer-left">
+        <div class="system-status">
+          <span class="status-indicator"></span>
+          <span>System Status: Operational</span>
+        </div>
+        <div class="utc-clock" id="utc-clock"></div>
+      </div>
 
-<article class="blog-card">
-<div class="blog-card-top">
-<span class="blog-date">Mar 2026</span>
-<span class="blog-category">Concurrency</span>
-</div>
-<h2 class="blog-title">Blocking vs Non-Blocking Execution Explained</h2>
-<p class="blog-excerpt">
-Event loops, synchronous bottlenecks, and why async systems scale efficiently under real-world load.
-</p>
-<div class="blog-footer">
-<span class="read-time">5 min read</span>
-<a href="#" class="blog-read">Read →</a>
-</div>
-</article>
+      <div class="footer-right">
+        <a
+          href="https://github.com/1PIYUSH-SINGHAL"
+          class="magnetic-link"
+          target="_blank"
+          >GitHub</a
+        >
+        <a href="#" class="magnetic-link">LinkedIn</a>
+        <a href="mailto:singhal.piyush2010@gmail.com" class="magnetic-link"
+          >Email</a
+        >
+      </div>
+    </footer>
 
-<article class="blog-card">
-<div class="blog-card-top">
-<span class="blog-date">Mar 2026</span>
-<span class="blog-category">REST</span>
-</div>
-<h2 class="blog-title">Designing Stateless REST APIs That Scale</h2>
-<p class="blog-excerpt">
-Validation layers, service boundaries, and decisions that enable horizontal growth.
-</p>
-<div class="blog-footer">
-<span class="read-time">6 min read</span>
-<a href="#" class="blog-read">Read →</a>
-</div>
-</article>
-
-<article class="blog-card">
-<div class="blog-card-top">
-<span class="blog-date">Mar 2026</span>
-<span class="blog-category">Performance</span>
-</div>
-<h2 class="blog-title">Measuring Execution Time in Python Properly</h2>
-<p class="blog-excerpt">
-Benchmarking patterns, CPU bottlenecks, and understanding latency vs throughput.
-</p>
-<div class="blog-footer">
-<span class="read-time">4 min read</span>
-<a href="#" class="blog-read">Read →</a>
-</div>
-</article>
-
-<article class="blog-card">
-<div class="blog-card-top">
-<span class="blog-date">Mar 2026</span>
-<span class="blog-category">Architecture</span>
-</div>
-<h2 class="blog-title">AsyncIO vs Threading: Choosing the Right Model</h2>
-<p class="blog-excerpt">
-Tradeoffs between concurrency models in real backend services.
-</p>
-<div class="blog-footer">
-<span class="read-time">7 min read</span>
-<a href="#" class="blog-read">Read →</a>
-</div>
-</article>
-
-<article class="blog-card">
-<div class="blog-card-top">
-<span class="blog-date">Mar 2026</span>
-<span class="blog-category">Systems</span>
-</div>
-<h2 class="blog-title">Designing for Resilience in Backend Services</h2>
-<p class="blog-excerpt">
-Circuit breakers, graceful degradation, and building failure-aware systems.
-</p>
-<div class="blog-footer">
-<span class="read-time">6 min read</span>
-<a href="#" class="blog-read">Read →</a>
-</div>
-</article>
-
-</div>
-
-<div class="blog-pagination" id="blog-pagination"></div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer class="carbon-footer">
-<div class="footer-left">
-<div class="system-status">
-<span class="status-indicator"></span>
-<span>System Status: Operational</span>
-</div>
-<div class="utc-clock" id="utc-clock"></div>
-</div>
-
-<div class="footer-right">
-<a href="https://github.com/1PIYUSH-SINGHAL" class="magnetic-link" target="_blank">GitHub</a>
-<a href="#" class="magnetic-link">LinkedIn</a>
-<a href="mailto:singhal.piyush2010@gmail.com" class="magnetic-link">Email</a>
-</div>
-</footer>
-
-<script src="../js/index.js"></script>
-<script src="../js/blog.js"></script>
-
-</body>
+    <script src="../js/index.js"></script>
+    <script src="../js/blog.js"></script>
+  </body>
 </html>
