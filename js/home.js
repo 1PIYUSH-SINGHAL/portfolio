@@ -1,46 +1,81 @@
+document.addEventListener("DOMContentLoaded",()=>{
+
+if(window.gsap&&window.ScrollTrigger){
 gsap.registerPlugin(ScrollTrigger)
-
-const duelContainer=document.getElementById('duel-container')
-const duelModern=document.getElementById('duel-modern')
-const duelSlider=document.getElementById('duel-slider')
-const toggleLegacy=document.getElementById('toggle-legacy')
-const toggleModern=document.getElementById('toggle-modern')
-
-function setSplit(p){
-const v=Math.max(0,Math.min(100,p))
-if(duelModern)duelModern.style.clipPath=`inset(0 0 0 ${v}%)`
-if(duelSlider)duelSlider.style.left=`${v}%`
 }
 
-if(window.innerWidth>=768 && duelContainer){
+const container=document.getElementById("duel-container")
+const modern=document.getElementById("duel-modern")
+const slider=document.getElementById("duel-slider")
+const toggleLegacy=document.getElementById("toggle-legacy")
+const toggleModern=document.getElementById("toggle-modern")
+
+if(!container||!modern||!slider) return
+
 let active=false
-duelSlider.addEventListener('mousedown',()=>active=true)
-window.addEventListener('mouseup',()=>active=false)
-window.addEventListener('mousemove',e=>{
-if(!active)return
-const r=duelContainer.getBoundingClientRect()
-setSplit(((e.clientX-r.left)/r.width)*100)
-})
+
+const clamp=v=>Math.max(0,Math.min(100,v))
+
+const setSplit=p=>{
+const v=clamp(p)
+modern.style.clipPath=`inset(0 0 0 ${v}%)`
+slider.style.left=`${v}%`
+}
+
+const move=e=>{
+if(!active) return
+const rect=container.getBoundingClientRect()
+const clientX=e.touches?e.touches[0].clientX:e.clientX
+setSplit(((clientX-rect.left)/rect.width)*100)
+}
+
+const enableDesktop=()=>{
+slider.addEventListener("mousedown",()=>active=true)
+window.addEventListener("mouseup",()=>active=false)
+window.addEventListener("mousemove",move)
+
+slider.addEventListener("touchstart",()=>active=true,{passive:true})
+window.addEventListener("touchend",()=>active=false)
+window.addEventListener("touchmove",move,{passive:true})
+
 setSplit(50)
 }
 
-if(window.innerWidth<768 && duelModern){
-duelModern.style.display='none'
-if(toggleLegacy)toggleLegacy.addEventListener('click',()=>{
-duelModern.style.display='none'
+const enableMobile=()=>{
+modern.style.display="none"
+toggleLegacy&&toggleLegacy.addEventListener("click",()=>{
+modern.style.display="none"
 })
-if(toggleModern)toggleModern.addEventListener('click',()=>{
-duelModern.style.display='flex'
+toggleModern&&toggleModern.addEventListener("click",()=>{
+modern.style.display="flex"
 })
 }
 
-gsap.from('.duel-container',{
+const init=()=>{
+if(window.innerWidth>=768){
+enableDesktop()
+}else{
+enableMobile()
+}
+}
+
+init()
+
+window.addEventListener("resize",()=>{
+active=false
+})
+
+if(window.gsap){
+gsap.from(".duel-container",{
 scrollTrigger:{
-trigger:'.duel-container',
-start:'top 80%'
+trigger:".duel-container",
+start:"top 85%"
 },
 opacity:0,
-y:60,
-duration:1,
-ease:'power3.out'
+y:80,
+duration:1.1,
+ease:"power3.out"
+})
+}
+
 })

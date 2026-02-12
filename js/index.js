@@ -1,70 +1,51 @@
-const carbonClock = document.getElementById("utc-clock");
+const $ = (s) => document.querySelector(s),
+  $$ = (s) => document.querySelectorAll(s);
 
-function carbonTick() {
-  if (!carbonClock) return;
-  const now = new Date();
-  const utc = now.toISOString().replace("T", " ").split(".")[0] + " UTC";
-  carbonClock.textContent = utc;
+/* UTC CLOCK */
+const clock = $("#utc-clock");
+if (clock) {
+  const tick = () =>
+    (clock.textContent =
+      new Date().toISOString().replace("T", " ").split(".")[0] + " UTC");
+  tick();
+  setInterval(tick, 1000);
 }
-setInterval(carbonTick, 450);
-carbonTick();
 
-const carbonMagnetic = document.querySelectorAll(".magnetic-link");
-
-carbonMagnetic.forEach((el) => {
+/* MAGNETIC LINKS */
+$$(".magnetic-link").forEach((el) => {
   el.addEventListener("mousemove", (e) => {
-    const r = el.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width / 2;
-    const y = e.clientY - r.top - r.height / 2;
+    const r = el.getBoundingClientRect(),
+      x = e.clientX - r.left - r.width / 2,
+      y = e.clientY - r.top - r.height / 2;
     el.style.transform = `translate(${x * 0.2}px,${y * 0.2}px)`;
   });
-  el.addEventListener("mouseleave", () => {
-    el.style.transform = "translate(0,0)";
-  });
+  el.addEventListener("mouseleave", () => (el.style.transform = ""));
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-  const carbonDiagnostic = document.getElementById("diagnostic-text");
-  const carbonLogo = document.querySelector(".carbon-logo");
-
+/* GSAP SCROLL REVEALS */
+document.addEventListener("DOMContentLoaded", () => {
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".tool-item", {
-      scrollTrigger: {
-        trigger: ".tools-grid",
-        start: "top 85%",
-        toggleActions: "play none none reverse",
-      },
-      opacity: 0,
-      y: 40,
-      stagger: 0.12,
-      duration: 0.8,
-      ease: "power3.out",
+    gsap.utils.toArray([".tool-card", ".focus-card"]).forEach((sel) => {
+      gsap.from(sel, {
+        scrollTrigger: {
+          trigger: sel,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        ease: "power3.out",
+      });
     });
   }
 
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
+  /* TERMINAL BOOT */
+  const diag = $("#diagnostic-text");
+  if (!diag) return;
 
-    gsap.from(".focus-card", {
-      scrollTrigger: {
-        trigger: ".focus-grid",
-        start: "top 85%",
-        toggleActions: "play none none reverse",
-      },
-      opacity: 0,
-      y: 60,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power3.out",
-    });
-  }
-
-  if (!carbonDiagnostic) return;
-  if (carbonLogo) carbonLogo.textContent = "";
-
-  const carbonBoot = [
+  const boot = [
     "> Initializing runtime...",
     "> Loading Python environment...",
     "> Verifying event loop...",
@@ -74,46 +55,49 @@ window.addEventListener("DOMContentLoaded", () => {
     "> Backend core: operational.",
   ];
 
-  carbonDiagnostic.innerHTML = "";
-
+  diag.innerHTML = "";
   const cursor = document.createElement("span");
   cursor.className = "terminal-cursor";
   cursor.textContent = "█";
 
-  function typeLine(line, cb) {
-    let i = 0;
-    const div = document.createElement("div");
-    carbonDiagnostic.appendChild(div);
+  const type = (line, cb) => {
+    let i = 0,
+      div = document.createElement("div");
+    diag.appendChild(div);
     div.appendChild(cursor);
-
-    const interval = setInterval(() => {
-      div.insertBefore(document.createTextNode(line[i]), cursor);
-      i++;
-      if (i >= line.length) {
-        clearInterval(interval);
+    const id = setInterval(() => {
+      div.insertBefore(document.createTextNode(line[i] || ""), cursor);
+      if (++i >= line.length) {
+        clearInterval(id);
         setTimeout(cb, 350);
       }
-    }, 35);
-  }
+    }, 45);
+  };
 
-  function runBoot(index = 0) {
-    if (index >= carbonBoot.length) {
-      setTimeout(typeHeaderLogo, 400);
-      return;
-    }
-    typeLine(carbonBoot[index], () => runBoot(index + 1));
-  }
+  const run = (i) => (i < boot.length ? type(boot[i], () => run(i + 1)) : null);
 
-  function typeHeaderLogo() {
-    if (!carbonLogo) return;
-    const text = "PIYUSH SINGHAL";
-    let i = 0;
-    const interval = setInterval(() => {
-      carbonLogo.textContent += text[i];
-      i++;
-      if (i >= text.length) clearInterval(interval);
-    }, 70);
-  }
-
-  runBoot();
+  run(0);
 });
+
+/* GENERIC REVEAL */
+const reveal = $$(".work-card,.focus-card,.tool-card,.blog-banner");
+if (reveal.length) {
+  const obs = new IntersectionObserver(
+    (es) => {
+      es.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = 1;
+          e.target.style.transform = "translateY(0)";
+          obs.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  reveal.forEach((el) => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all .6s cubic-bezier(.4,0,.2,1)";
+    obs.observe(el);
+  });
+}

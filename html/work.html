@@ -1,201 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Work | Piyush Singhal</title>
-<link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="../css/work.css">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Work | Piyush Singhal</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/work.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <header class="carbon-header">
+      <div class="carbon-logo">PIYUSH SINGHAL</div>
+      <nav class="carbon-nav">
+        <a href="../index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-<header class="carbon-header">
-<div class="carbon-logo">PIYUSH SINGHAL</div>
-<nav class="carbon-nav">
-<a href="../index.html">Home</a>
-<a href="work.html">Work</a>
-<a href="blog.html">Blog</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header>
+    <main class="carbon-main">
+      <section class="work-hero">
+        <div class="work-hero-wrapper">
+          <span class="work-label">ENGINEERED SYSTEMS</span>
+          <h1 class="work-title">Backend Architecture & Performance Builds</h1>
+          <p class="work-description">
+            Systems designed around concurrency, scalability, async execution
+            and resilient backend patterns.
+          </p>
+          <div class="work-count" id="work-count"></div>
+        </div>
+      </section>
 
-<main class="carbon-main">
+      <section class="work-archive">
+        <div class="work-wrapper" id="work-container">
+          <article class="work-card">
+            <div class="work-card-header">
+              <h2>Async Task Processor</h2>
+              <span class="work-status status-live">Production</span>
+            </div>
+            <p class="work-summary">
+              Non-blocking task execution engine leveraging Python AsyncIO for
+              high-throughput event-driven workloads.
+            </p>
+            <div class="work-tags">
+              <span>Event-Driven</span><span>Non-Blocking IO</span
+              ><span>Horizontal Scaling</span>
+            </div>
+            <div class="work-metadata">
+              <div>
+                <span class="meta-label">FOCUS</span
+                ><span class="meta-value">Concurrency · Event Loop</span>
+              </div>
+              <div>
+                <span class="meta-label">ARCHITECTURE</span
+                ><span class="meta-value">Worker-Based Runtime</span>
+              </div>
+              <div>
+                <span class="meta-label">STACK</span
+                ><span class="meta-value">Python · AsyncIO</span>
+              </div>
+            </div>
+            <div class="work-links"><a href="#">Repository →</a></div>
+          </article>
 
-<section class="work-hero">
-<div class="work-hero-wrapper">
-<span class="work-label">SELECTED PROJECTS</span>
-<h1 class="work-title">Backend Systems & Engineering Builds</h1>
-<p class="work-description">
-Architected, performance-driven backend systems focused on concurrency, scalability, and system reliability.
-</p>
-<div class="work-count" id="work-count"></div>
-</div>
-</section>
+          <article class="work-card">
+            <div class="work-card-header">
+              <h2>REST API Backend</h2>
+              <span class="work-status status-dev">In Development</span>
+            </div>
+            <p class="work-summary">
+              Layered RESTful backend with structured validation, stateless
+              routing, and scalable service boundaries.
+            </p>
+            <div class="work-tags">
+              <span>Stateless</span><span>Layered Design</span
+              ><span>Scalable APIs</span>
+            </div>
+            <div class="work-metadata">
+              <div>
+                <span class="meta-label">FOCUS</span
+                ><span class="meta-value">API Design · Scalability</span>
+              </div>
+              <div>
+                <span class="meta-label">ARCHITECTURE</span
+                ><span class="meta-value">Service Layer Pattern</span>
+              </div>
+              <div>
+                <span class="meta-label">STACK</span
+                ><span class="meta-value">FastAPI · SQL</span>
+              </div>
+            </div>
+            <div class="work-links"><a href="#">Repository →</a></div>
+          </article>
 
-<section class="work-archive">
-<div class="work-wrapper" id="work-container">
+          <article class="work-card">
+            <div class="work-card-header">
+              <h2>Performance Benchmark Engine</h2>
+              <span class="work-status status-exp">Experimental</span>
+            </div>
+            <p class="work-summary">
+              System load and latency benchmarking suite for profiling async
+              concurrency bottlenecks.
+            </p>
+            <div class="work-tags">
+              <span>Load Testing</span><span>Throughput</span
+              ><span>Profiling</span>
+            </div>
+            <div class="work-metadata">
+              <div>
+                <span class="meta-label">FOCUS</span
+                ><span class="meta-value">Performance Measurement</span>
+              </div>
+              <div>
+                <span class="meta-label">ARCHITECTURE</span
+                ><span class="meta-value">Event-Driven Stress Core</span>
+              </div>
+              <div>
+                <span class="meta-label">STACK</span
+                ><span class="meta-value">Python · AsyncIO</span>
+              </div>
+            </div>
+            <div class="work-links"><a href="#">Repository →</a></div>
+          </article>
 
-<article class="work-card">
-<div class="work-card-header">
-<h2>Async Task Processor</h2>
-<span class="work-status status-live">Live</span>
-</div>
-<p class="work-summary">
-Event-driven task execution engine using Python AsyncIO with non-blocking IO and concurrency-safe scheduling.
-</p>
-<div class="work-metadata">
-<div>
-<span class="meta-label">FOCUS</span>
-<span class="meta-value">Concurrency · Event Loop</span>
-</div>
-<div>
-<span class="meta-label">ARCHITECTURE</span>
-<span class="meta-value">Worker-Based Non-Blocking Model</span>
-</div>
-<div>
-<span class="meta-label">STACK</span>
-<span class="meta-value">Python · AsyncIO</span>
-</div>
-</div>
-<div class="work-links">
-<a href="#">Repository →</a>
-</div>
-</article>
+          <article class="work-card">
+            <div class="work-card-header">
+              <h2>Distributed Cache Layer</h2>
+              <span class="work-status status-live">Production</span>
+            </div>
+            <p class="work-summary">
+              In-memory distributed caching system designed to reduce database
+              latency and improve horizontal scaling.
+            </p>
+            <div class="work-tags">
+              <span>Caching</span><span>Latency Reduction</span
+              ><span>Scalability</span>
+            </div>
+            <div class="work-metadata">
+              <div>
+                <span class="meta-label">FOCUS</span
+                ><span class="meta-value">Optimization · Scaling</span>
+              </div>
+              <div>
+                <span class="meta-label">ARCHITECTURE</span
+                ><span class="meta-value">Distributed Node Sync</span>
+              </div>
+              <div>
+                <span class="meta-label">STACK</span
+                ><span class="meta-value">Python · Redis</span>
+              </div>
+            </div>
+            <div class="work-links"><a href="#">Repository →</a></div>
+          </article>
 
-<article class="work-card">
-<div class="work-card-header">
-<h2>REST API Backend</h2>
-<span class="work-status status-dev">In Development</span>
-</div>
-<p class="work-summary">
-Stateless RESTful service designed with structured validation, modular routing, and scalable query handling.
-</p>
-<div class="work-metadata">
-<div>
-<span class="meta-label">FOCUS</span>
-<span class="meta-value">API Design · Scalability</span>
-</div>
-<div>
-<span class="meta-label">ARCHITECTURE</span>
-<span class="meta-value">Layered Service Pattern</span>
-</div>
-<div>
-<span class="meta-label">STACK</span>
-<span class="meta-value">Python · FastAPI · SQL</span>
-</div>
-</div>
-<div class="work-links">
-<a href="#">Repository →</a>
-</div>
-</article>
+          <article class="work-card">
+            <div class="work-card-header">
+              <h2>Message Queue Engine</h2>
+              <span class="work-status status-exp">Experimental</span>
+            </div>
+            <p class="work-summary">
+              Lightweight publish-subscribe engine enabling async orchestration
+              across backend services.
+            </p>
+            <div class="work-tags">
+              <span>Pub/Sub</span><span>Async Messaging</span
+              ><span>Microservices</span>
+            </div>
+            <div class="work-metadata">
+              <div>
+                <span class="meta-label">FOCUS</span
+                ><span class="meta-value">Event Systems</span>
+              </div>
+              <div>
+                <span class="meta-label">ARCHITECTURE</span
+                ><span class="meta-value">Publisher-Subscriber</span>
+              </div>
+              <div>
+                <span class="meta-label">STACK</span
+                ><span class="meta-value">Python · AsyncIO</span>
+              </div>
+            </div>
+            <div class="work-links"><a href="#">Repository →</a></div>
+          </article>
 
-<article class="work-card">
-<div class="work-card-header">
-<h2>Performance Benchmark Tool</h2>
-<span class="work-status status-exp">Experimental</span>
-</div>
-<p class="work-summary">
-System load benchmarking utility for analyzing response time, throughput, and async concurrency bottlenecks.
-</p>
-<div class="work-metadata">
-<div>
-<span class="meta-label">FOCUS</span>
-<span class="meta-value">Performance Testing</span>
-</div>
-<div>
-<span class="meta-label">ARCHITECTURE</span>
-<span class="meta-value">Event-Driven Stress Engine</span>
-</div>
-<div>
-<span class="meta-label">STACK</span>
-<span class="meta-value">Python · AsyncIO · CLI</span>
-</div>
-</div>
-<div class="work-links">
-<a href="#">Repository →</a>
-</div>
-</article>
+          <div class="work-pagination" id="work-pagination"></div>
+        </div>
+      </section>
+    </main>
 
-<article class="work-card">
-<div class="work-card-header">
-<h2>Distributed Cache Layer</h2>
-<span class="work-status status-live">Live</span>
-</div>
-<p class="work-summary">
-In-memory distributed caching layer for reducing database latency and improving horizontal scaling.
-</p>
-<div class="work-metadata">
-<div>
-<span class="meta-label">FOCUS</span>
-<span class="meta-value">Scalability · Optimization</span>
-</div>
-<div>
-<span class="meta-label">ARCHITECTURE</span>
-<span class="meta-value">Distributed Node Sync</span>
-</div>
-<div>
-<span class="meta-label">STACK</span>
-<span class="meta-value">Python · Redis</span>
-</div>
-</div>
-<div class="work-links">
-<a href="#">Repository →</a>
-</div>
-</article>
+    <footer class="carbon-footer">
+      <div class="footer-left">
+        <div class="system-status">
+          <span class="status-indicator"></span>
+          <span>System Status: Operational</span>
+        </div>
+        <div class="utc-clock" id="utc-clock"></div>
+      </div>
+      <div class="footer-right">
+        <a
+          href="https://github.com/1PIYUSH-SINGHAL"
+          class="magnetic-link"
+          target="_blank"
+          >GitHub</a
+        >
+        <a href="#" class="magnetic-link">LinkedIn</a>
+        <a href="mailto:singhal.piyush2010@gmail.com" class="magnetic-link"
+          >Email</a
+        >
+      </div>
+    </footer>
 
-<article class="work-card">
-<div class="work-card-header">
-<h2>Message Queue Engine</h2>
-<span class="work-status status-exp">Experimental</span>
-</div>
-<p class="work-summary">
-Lightweight message broker for async task orchestration and microservice communication.
-</p>
-<div class="work-metadata">
-<div>
-<span class="meta-label">FOCUS</span>
-<span class="meta-value">Event-Driven Systems</span>
-</div>
-<div>
-<span class="meta-label">ARCHITECTURE</span>
-<span class="meta-value">Publisher-Subscriber Model</span>
-</div>
-<div>
-<span class="meta-label">STACK</span>
-<span class="meta-value">Python · AsyncIO</span>
-</div>
-</div>
-<div class="work-links">
-<a href="#">Repository →</a>
-</div>
-</article>
-
-<div class="work-pagination" id="work-pagination"></div>
-
-</div>
-</section>
-
-</main>
-
-<footer class="carbon-footer">
-  <div class="footer-left">
-    <div class="system-status">
-      <span class="status-indicator"></span>
-      <span>System Status: Operational</span>
-    </div>
-    <div class="utc-clock" id="utc-clock"></div>
-  </div>
-
-  <div class="footer-right">
-    <a href="https://github.com/1PIYUSH-SINGHAL" class="magnetic-link" target="_blank">GitHub</a>
-    <a href="#" class="magnetic-link">LinkedIn</a>
-    <a href="mailto:singhal.piyush2010@gmail.com" class="magnetic-link">Email</a>
-  </div>
-</footer>
-
-<script src="../js/index.js"></script>
-<script src="../js/work.js"></script>
-</body>
+    <script src="../js/index.js"></script>
+    <script src="../js/work.js"></script>
+  </body>
 </html>

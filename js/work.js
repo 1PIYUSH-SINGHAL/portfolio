@@ -1,92 +1,84 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-const PROJECTS_PER_PAGE = 4
-const container = document.getElementById("work-container")
-const projects = Array.from(container.getElementsByClassName("work-card"))
-const pagination = document.getElementById("work-pagination")
-const countDisplay = document.getElementById("work-count")
+const PER_PAGE=4
+const container=document.getElementById("work-container")
+if(!container) return
 
-if(!container || projects.length === 0) return
+const cards=[...container.querySelectorAll(".work-card")]
+const pagination=document.getElementById("work-pagination")
+const count=document.getElementById("work-count")
 
-const totalPages = Math.ceil(projects.length / PROJECTS_PER_PAGE)
+if(!cards.length) return
 
-if(countDisplay){
-countDisplay.textContent = `${projects.length} Projects`
+const total=Math.ceil(cards.length/PER_PAGE)
+if(count) count.textContent=`${cards.length} Projects`
+
+const getPage=()=>{
+const p=parseInt(new URLSearchParams(location.search).get("page"))
+return p>0&&p<=total?p:1
 }
 
-function getPageFromURL(){
-const params = new URLSearchParams(window.location.search)
-const page = parseInt(params.get("page"))
-return page && page > 0 && page <= totalPages ? page : 1
+const setPageURL=p=>{
+const u=new URL(location)
+u.searchParams.set("page",p)
+history.pushState({},'',u)
 }
 
-function updateURL(page){
-const url = new URL(window.location)
-url.searchParams.set("page", page)
-window.history.pushState({}, "", url)
-}
+const showPage=p=>{
+const start=(p-1)*PER_PAGE
+const end=start+PER_PAGE
 
-function renderPage(page){
-
-projects.forEach((project, index) => {
-project.style.display = "none"
-if(index >= (page - 1) * PROJECTS_PER_PAGE &&
-   index < page * PROJECTS_PER_PAGE){
-project.style.display = "flex"
-}
+cards.forEach((c,i)=>{
+c.classList.toggle("hidden",!(i>=start&&i<end))
 })
 
-renderPagination(page)
+renderPagination(p)
+window.scrollTo({top:0,behavior:"smooth"})
 }
 
-function renderPagination(currentPage){
+const renderPagination=current=>{
+if(!pagination||total<=1) return
+pagination.innerHTML=""
 
-pagination.innerHTML = ""
-if(totalPages <= 1) return
-
-const prev = document.createElement("button")
-prev.textContent = "Prev"
-prev.className = "work-page-btn"
-prev.disabled = currentPage === 1
-prev.addEventListener("click", () => {
-if(currentPage > 1){
-updateURL(currentPage - 1)
-renderPage(currentPage - 1)
+const createBtn=(label,page,disabled=false,active=false)=>{
+const b=document.createElement("button")
+b.textContent=label
+b.className="work-page-btn"
+if(active) b.classList.add("active")
+b.disabled=disabled
+b.onclick=()=>{
+if(disabled) return
+setPageURL(page)
+showPage(page)
 }
-})
-pagination.appendChild(prev)
-
-for(let i = 1; i <= totalPages; i++){
-const btn = document.createElement("button")
-btn.textContent = i
-btn.className = "work-page-btn"
-if(i === currentPage){
-btn.classList.add("active")
-}
-btn.addEventListener("click", () => {
-updateURL(i)
-renderPage(i)
-})
-pagination.appendChild(btn)
+return b
 }
 
-const next = document.createElement("button")
-next.textContent = "Next"
-next.className = "work-page-btn"
-next.disabled = currentPage === totalPages
-next.addEventListener("click", () => {
-if(currentPage < totalPages){
-updateURL(currentPage + 1)
-renderPage(currentPage + 1)
-}
-})
-pagination.appendChild(next)
+pagination.appendChild(
+createBtn("Prev",current-1,current===1)
+)
+
+const windowSize=5
+let start=Math.max(1,current-2)
+let end=Math.min(total,start+windowSize-1)
+
+if(end-start<windowSize-1){
+start=Math.max(1,end-windowSize+1)
 }
 
-window.addEventListener("popstate", () => {
-renderPage(getPageFromURL())
-})
+for(let i=start;i<=end;i++){
+pagination.appendChild(
+createBtn(i,i,false,i===current)
+)
+}
 
-renderPage(getPageFromURL())
+pagination.appendChild(
+createBtn("Next",current+1,current===total)
+)
+}
+
+window.addEventListener("popstate",()=>showPage(getPage()))
+
+showPage(getPage())
 
 })
