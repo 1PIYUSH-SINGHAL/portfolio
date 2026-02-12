@@ -157,6 +157,11 @@ transition:transform .2s ease,color .2s ease;
 
 @media(min-width:768px){
 
+.carbon-logo{
+font-size:.6rem;
+}
+
+
 .carbon-header{
 padding:1.4rem 2.5rem;
 }
