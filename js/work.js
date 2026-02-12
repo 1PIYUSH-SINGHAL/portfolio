@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-const PROJECTS_PER_PAGE = 3
+const PROJECTS_PER_PAGE = 4
 const container = document.getElementById("work-container")
 const projects = Array.from(container.getElementsByClassName("work-card"))
 const pagination = document.getElementById("work-pagination")
