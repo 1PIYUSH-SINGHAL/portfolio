@@ -30,6 +30,23 @@ window.addEventListener("DOMContentLoaded", () => {
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
+    gsap.from(".tool-item", {
+      scrollTrigger: {
+        trigger: ".tools-grid",
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 40,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+  }
+
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.from(".focus-card", {
       scrollTrigger: {
         trigger: ".focus-grid",
