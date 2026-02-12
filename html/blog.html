@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Piyush Singhal</title>
+
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/blog.css">
+</head>
+
+<body class="carbon-root">
+
+<header class="carbon-header">
+  <div class="carbon-logo">PIYUSH SINGHAL</div>
+  <nav class="carbon-nav">
+    <a href="/index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="carbon-main">
+
+<section class="blog-hero">
+  <div class="blog-hero-wrapper">
+
+    <div class="blog-hero-meta">
+      <span>ENGINEERING LOG</span>
+    </div>
+
+    <h1 class="blog-hero-title">
+      Backend Systems & Architecture Notes
+    </h1>
+
+    <p class="blog-hero-description">
+      Practical writing on async execution, REST design, performance tradeoffs,
+      and backend architecture decisions made while building real systems.
+    </p>
+
+  </div>
+</section>
+
+<section class="blog-index">
+
+  <div class="blog-index-wrapper">
+
+    <div class="blog-index-header">
+      <span class="index-label">ARTICLES</span>
+      <span class="index-count" id="article-count"></span>
+    </div>
+
+    <div class="blog-list" id="blog-container">
+
+      <article class="blog-card">
+        <div class="blog-card-top">
+          <span class="blog-date">Mar 2026</span>
+          <span class="blog-category">Concurrency</span>
+        </div>
+        <h2 class="blog-title">
+          Blocking vs Non-Blocking Execution Explained
+        </h2>
+        <p class="blog-excerpt">
+          Understanding event loops, synchronous bottlenecks, and why async systems
+          scale more efficiently under load.
+        </p>
+        <div class="blog-footer">
+          <span class="read-time">5 min read</span>
+          <a href="#" class="blog-read">Read →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-top">
+          <span class="blog-date">Mar 2026</span>
+          <span class="blog-category">REST</span>
+        </div>
+        <h2 class="blog-title">
+          Designing Stateless REST APIs That Scale
+        </h2>
+        <p class="blog-excerpt">
+          Endpoint structure, validation layers, and architectural decisions
+          that support horizontal scaling.
+        </p>
+        <div class="blog-footer">
+          <span class="read-time">6 min read</span>
+          <a href="#" class="blog-read">Read →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-top">
+          <span class="blog-date">Mar 2026</span>
+          <span class="blog-category">Performance</span>
+        </div>
+        <h2 class="blog-title">
+          Measuring Execution Time in Python Properly
+        </h2>
+        <p class="blog-excerpt">
+          Benchmarking patterns, identifying CPU bottlenecks, and analyzing
+          throughput vs latency tradeoffs.
+        </p>
+        <div class="blog-footer">
+          <span class="read-time">4 min read</span>
+          <a href="#" class="blog-read">Read →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-top">
+          <span class="blog-date">Mar 2026</span>
+          <span class="blog-category">Architecture</span>
+        </div>
+        <h2 class="blog-title">
+          AsyncIO vs Threading: When to Choose What
+        </h2>
+        <p class="blog-excerpt">
+          Comparing concurrency models and understanding tradeoffs in real backend services.
+        </p>
+        <div class="blog-footer">
+          <span class="read-time">7 min read</span>
+          <a href="#" class="blog-read">Read →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-top">
+          <span class="blog-date">Mar 2026</span>
+          <span class="blog-category">Systems</span>
+        </div>
+        <h2 class="blog-title">
+          Designing for Resilience in Backend Services
+        </h2>
+        <p class="blog-excerpt">
+          Circuit breakers, graceful degradation, and designing for failure from day one.
+        </p>
+        <div class="blog-footer">
+          <span class="read-time">6 min read</span>
+          <a href="#" class="blog-read">Read →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="blog-pagination" id="blog-pagination"></div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="carbon-footer">
+  <div class="footer-left">
+    <div class="system-status">
+      <span class="status-indicator"></span>
+      <span>System Status: Operational</span>
+    </div>
+    <div class="utc-clock" id="utc-clock"></div>
+  </div>
+
+  <div class="footer-right">
+    <a href="https://github.com/1PIYUSH-SINGHAL" class="magnetic-link" target="_blank">GitHub</a>
+    <a href="#" class="magnetic-link">LinkedIn</a>
+    <a href="mailto:singhal.piyush2010@gmail.com" class="magnetic-link">Email</a>
+  </div>
+</footer>
+
+<script src="/js/index.js"></script>
+<script src="/js/blog.js"></script>
+
+</body>
+</html>
