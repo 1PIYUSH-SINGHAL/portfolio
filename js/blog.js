@@ -74,3 +74,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderPage(getPage());
 });
+
+
+const posts = [
+  // {
+  //   date: "Mar 2026",
+  //   category: "Concurrency",
+  //   title: "Blocking vs Non-Blocking Execution Explained",
+  //   excerpt:
+  //     "Event loops, synchronous bottlenecks, and why async systems scale efficiently under real world load.",
+  //   readTime: "5 min read",
+  //   link: "#"
+  // },
+  // {
+  //   date: "Mar 2026",
+  //   category: "REST",
+  //   title: "Designing Stateless REST APIs That Scale",
+  //   excerpt:
+  //     "Validation layers, service boundaries, and decisions that enable horizontal growth.",
+  //   readTime: "6 min read",
+  //   link: "#"
+  // }
+];
+
+const container = document.getElementById("blog-container");
+const countDisplay = document.getElementById("article-count");
+
+function renderPosts() {
+  if (!container || !countDisplay) return;
+
+  if (posts.length === 0) {
+    container.innerHTML = `
+      <div class="blog-empty">
+        <h2>Coming Soon</h2>
+        <p>Engineering articles are currently being prepared.</p>
+      </div>
+    `;
+    countDisplay.textContent = "0 Articles Published";
+    return;
+  }
+
+  container.innerHTML = posts
+    .map(
+      p => `
+        <article class="blog-card">
+          <div class="blog-card-top">
+            <span class="blog-date">${p.date}</span>
+            <span class="blog-category">${p.category}</span>
+          </div>
+          <h2 class="blog-title">${p.title}</h2>
+          <p class="blog-excerpt">${p.excerpt}</p>
+          <div class="blog-footer">
+            <span class="read-time">${p.readTime}</span>
+            <a href="${p.link}" class="blog-read">Read →</a>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+
+  const count = posts.length;
+  countDisplay.textContent =
+    count === 1
+      ? "1 Article Published"
+      : `${count} Articles Published`;
+}
+
+renderPosts();
