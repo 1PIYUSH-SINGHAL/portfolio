@@ -273,3 +273,9 @@
 .hidden {
   display: none !important;
 }
+
+.work-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
