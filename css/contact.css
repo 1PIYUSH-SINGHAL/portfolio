@@ -183,13 +183,14 @@
 .form-field input,
 .form-field textarea,
 .form-field select {
-  background: #111;
-  border: 1px solid #2d2e2e;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 14px;
-  color: #e5e5e5;
+  color: var(--carbon-platinum);
   font-family: var(--carbon-font-mono);
   font-size: 0.9rem;
   transition: 0.25s ease;
+  outline: none;
 }
 
 .form-field input:focus,

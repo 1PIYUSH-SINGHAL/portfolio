@@ -62,9 +62,10 @@
 }
 
 .work-card {
-  background: #2d2e2e;
+  background: var(--carbon-surface);
   padding: 32px;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 2px solid transparent;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -72,9 +73,9 @@
   position: relative;
   overflow: hidden;
 }
-
 .work-card:hover {
   border-color: var(--carbon-bronze);
+  border-top-color: var(--carbon-bronze);
   transform: translateY(-8px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
@@ -278,4 +279,20 @@
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+}
+
+.tag {
+  font-family: var(--carbon-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--carbon-bronze);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  background: rgba(212, 175, 55, 0.06);
+  padding: 4px 10px;
+  text-transform: uppercase;
+  transition: all var(--carbon-fast) var(--carbon-ease);
+}
+.tag:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--carbon-bronze);
 }
